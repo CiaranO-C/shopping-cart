@@ -32,8 +32,9 @@ function Navbar() {
                 ? `${styles.searchBtn} ${styles.shifted}`
                 : styles.searchBtn
             }
+            aria-label='open-search-bar'
           >
-            <MagnifyingGlassIcon className="h-6 w-6 text-gray-500" />
+            <MagnifyingGlassIcon  className="h-6 w-6 text-gray-500" />
           </button>
           <input
             ref={inputRef}
@@ -46,7 +47,7 @@ function Navbar() {
             type="text"
           />
         </div>
-        <NavLink>
+        <NavLink to='/cart'>
           <span className="material-symbols-outlined">potted_plant</span>
         </NavLink>
       </nav>

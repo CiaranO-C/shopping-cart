@@ -1,7 +1,8 @@
 import App from './App.jsx';
-import ErrorPage from './ErrorPage';
-import HomePage from './home/HomePage';
-import ShopPage from './ShopPage';
+import ErrorPage from './ErrorPage.jsx';
+import HomePage from './home/HomePage.jsx';
+import ShopPage from './ShopPage.jsx';
+import CartPage from './CartPage.jsx'
 
 const routesConfig = [
     {
@@ -16,6 +17,10 @@ const routesConfig = [
     {
       path: "/shop",
       element: <ShopPage />,
+    },
+    {
+      path: "/cart",
+      element: <CartPage />,
     },
   ];
 
