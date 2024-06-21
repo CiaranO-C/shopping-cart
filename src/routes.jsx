@@ -11,15 +11,15 @@ const routesConfig = [
     errorElement: <ErrorPage />,
     children: [
       {
-        path: "/home",
+        path: "home",
         element: <HomePage />,
       },
       {
-        path: "/shop",
+        path: "shop",
         element: <ShopPage />,
       },
       {
-        path: "/cart",
+        path: "cart",
         element: <CartPage />,
       },
     ],
