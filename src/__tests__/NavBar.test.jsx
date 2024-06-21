@@ -13,6 +13,7 @@ describe("NavBar Component", () => {
     );
     const searchIcon = screen.getByLabelText("open-search-bar");
     expect(searchIcon).toBeInTheDocument();
+    expect(searchIcon).toBeVisible();
   });
 
   it("searchbar hidden on initial render", () => {
@@ -26,7 +27,7 @@ describe("NavBar Component", () => {
     expect(searchbar).not.toBeInTheDocument();
   });
 
-  it('searchbar visibile upon click of search icon', async () => {
+  it("searchbar visibile upon click of search icon", async () => {
     const user = userEvent.setup();
     render(
       <MemoryRouter>
@@ -37,5 +38,23 @@ describe("NavBar Component", () => {
     await user.click(searchIcon);
     const searchbar = screen.getByRole("searchbox");
     expect(searchbar).toBeVisible();
-  })
+  });
+
+  it("searchbar hidden upon click of search icon when searchbar already open", async () => {
+    const user = userEvent.setup();
+    render(
+      <MemoryRouter>
+        <Navbar />
+      </MemoryRouter>,
+    );
+    const searchIcon = screen.getByLabelText("open-search-bar");
+    await user.click(searchIcon);
+    const searchbar = screen.queryByRole("searchbox");
+
+    expect(searchbar).toBeVisible();
+
+    await user.click(searchIcon);
+
+    expect(searchbar).not.toBeVisible();
+  });
 });
