@@ -14,7 +14,10 @@ function Navbar() {
 
   useEffect(() => {
     if (searchActive) {
+      inputRef.current.style.visibility = 'visible';
       inputRef.current.focus();
+    } else {
+      inputRef.current.style.visibility = 'hidden';
     }
   }, [searchActive]);
 
@@ -32,9 +35,9 @@ function Navbar() {
                 ? `${styles.searchBtn} ${styles.shifted}`
                 : styles.searchBtn
             }
-            aria-label='open-search-bar'
+            aria-label="open-search-bar"
           >
-            <MagnifyingGlassIcon  className="h-6 w-6 text-gray-500" />
+            <MagnifyingGlassIcon className="h-6 w-6 text-gray-500" />
           </button>
           <input
             ref={inputRef}
@@ -44,10 +47,11 @@ function Navbar() {
                 ? `${styles.searchInput} ${styles.expanded}`
                 : styles.searchInput
             }
-            type="text"
+            type="search"
+            role="searchbox"
           />
         </div>
-        <NavLink to='/cart'>
+        <NavLink to="/cart">
           <span className="material-symbols-outlined">potted_plant</span>
         </NavLink>
       </nav>

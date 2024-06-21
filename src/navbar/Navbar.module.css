@@ -30,7 +30,6 @@
     transform: scaleX(0);
     transform-origin: right;
     transition: transform 0.6s ease-out;
-    visibility: hidden;
 }
 
 .shifted {
@@ -38,6 +37,5 @@
 }
 
 .expanded {
-    visibility: visible;
     transform: scaleX(1);
 }
