@@ -5,6 +5,18 @@ import { expect, describe, it } from "vitest";
 import { MemoryRouter } from "react-router-dom";
 
 describe("NavBar Component", () => {
+  it('renders an h1 title "Root"', () => {
+    render(
+      <MemoryRouter>
+        <Navbar />
+      </MemoryRouter>,
+    );
+
+    const title = screen.getByRole("heading", { name: "Root" });
+    expect(title).toBeInTheDocument();
+    expect(title).toHaveTextContent("Root");
+  });
+
   it("renders the search icon", () => {
     render(
       <MemoryRouter>
