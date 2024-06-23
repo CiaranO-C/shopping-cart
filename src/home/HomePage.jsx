@@ -1,15 +1,28 @@
 import { useEffect, useState } from "react";
-import styles from "./HomePage.module.css";
 import Carousel from "../components/Carousel";
+import styled from "styled-components";
+
+const Home = styled.main`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+`;
+
+const Title = styled.h1`
+  font-size: 3.5em;
+  margin: 45px 0px;
+`;
 
 function HomePage() {
   return (
     <>
-      <main className={styles.homeContent}>
+      <Home>
         <Carousel direction="right" />
-        <h1 className={styles.title}>Root</h1>
+        <Title>Root</Title>
         <Carousel direction="left" />
-      </main>
+      </Home>
     </>
   );
 }

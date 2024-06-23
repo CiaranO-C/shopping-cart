@@ -1,3 +1,6 @@
+import { createGlobalStyle } from "styled-components";
+
+const GlobalStyles = createGlobalStyle`
 :root {
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
@@ -73,3 +76,7 @@ button:focus-visible {
     background-color: #f9f9f9;
   }
 }
+
+`;
+
+export default GlobalStyles;
