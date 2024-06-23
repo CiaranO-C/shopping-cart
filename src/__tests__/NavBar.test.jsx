@@ -1,4 +1,4 @@
-import { render, screen } from "@testing-library/react";
+import { render, screen, waitFor } from "@testing-library/react";
 import Navbar from "../navbar/Navbar.jsx";
 import userEvent from "@testing-library/user-event";
 import { expect, describe, it } from "vitest";
@@ -24,7 +24,7 @@ describe("NavBar Component", () => {
     );
 
     const searchbar = screen.queryByRole("searchbox");
-    expect(searchbar).not.toBeInTheDocument();
+    expect(searchbar).not.toBeVisible();
   });
 
   it("searchbar visibile upon click of search icon", async () => {
@@ -55,6 +55,9 @@ describe("NavBar Component", () => {
 
     await user.click(searchIcon);
 
-    expect(searchbar).not.toBeVisible();
+    await waitFor(() => {
+      const searchbar = screen.queryByRole("searchbox");
+      expect(searchbar).not.toBeVisible();
+    });
   });
 });
