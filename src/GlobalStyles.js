@@ -43,25 +43,20 @@ body {
 }
 
 h1 {
-  font-family: "Autour One", "Albert Sans", sans-serif;
+ font-family: 'Abril Fatface', display;
+}
+
+#root > :nth-child(2){
+margin-top: 85px;
 }
 
 button {
-  border-radius: 8px;
-  border: 1px solid transparent;
   font-size: 1em;
   font-weight: 500;
   font-family: inherit;
-  background-color: #1a1a1a;
   cursor: pointer;
   transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+  background-color: transparent;
 }
 
 @media (prefers-color-scheme: light) {

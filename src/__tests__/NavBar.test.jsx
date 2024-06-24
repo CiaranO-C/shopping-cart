@@ -12,9 +12,9 @@ describe("NavBar Component", () => {
       </MemoryRouter>,
     );
 
-    const title = screen.getByRole("heading", { name: "Root" });
+    const title = screen.getByRole("heading", { name: "root" });
     expect(title).toBeInTheDocument();
-    expect(title).toHaveTextContent("Root");
+    expect(title).toHaveTextContent("root");
   });
 
   it("renders the search icon", () => {

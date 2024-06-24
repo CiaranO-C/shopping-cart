@@ -3,6 +3,7 @@ import ErrorPage from "./ErrorPage.jsx";
 import HomePage from "./home/HomePage.jsx";
 import ShopPage from "./ShopPage.jsx";
 import CartPage from "./CartPage.jsx";
+import ProductPage from "./ProductPage.jsx";
 
 const routesConfig = [
   {
@@ -17,6 +18,12 @@ const routesConfig = [
       {
         path: "shop",
         element: <ShopPage />,
+        children: [
+          {
+            path: "shop/:id",
+            element: <ProductPage />,
+          },
+        ],
       },
       {
         path: "cart",

@@ -1,4 +1,3 @@
-import { useEffect, useState } from "react";
 import Carousel from "../components/Carousel";
 import styled from "styled-components";
 
@@ -20,7 +19,7 @@ function HomePage() {
     <>
       <Home>
         <Carousel direction="right" />
-        <Title>Root</Title>
+        <Title>root</Title>
         <Carousel direction="left" />
       </Home>
     </>

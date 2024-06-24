@@ -49,7 +49,7 @@ const SlideContainer = styled.div`
 `;
 
 function Carousel({ direction }) {
-  const [plantsData] = useOutletContext();
+  const {plantsData} = useOutletContext();
   const left = direction === "left";
   if (!plantsData) return <LoadingUI>Loading...</LoadingUI>;
 

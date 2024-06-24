@@ -1,11 +1,14 @@
 import React from "react";
 import { Outlet } from "react-router-dom";
 import Navbar from "./navbar/Navbar";
-import { useState } from 'react';
-import { useEffect } from 'react';
+import { useState } from "react";
+import { useEffect } from "react";
 
 function App() {
   const [plantsData, setPlantsData] = useState(null);
+  const [basketData, setBasketData] = useState([]);
+
+  const basketCount = basketData.length;
 
   useEffect(() => {
     let data;
@@ -40,8 +43,8 @@ function App() {
 
   return (
     <>
-      <Navbar />
-      <Outlet context={[plantsData]} />
+      <Navbar basketCount={basketCount} />
+      <Outlet context={{plantsData, basketData}} />
     </>
   );
 }
