@@ -24,11 +24,19 @@ const Header = styled.header`
   justify-content: space-between;
   position: fixed;
   width: 100vw;
+  top: 0;
+
+  h1 {
+    font-size: 3em;
+    position: relative;
+    top: -4px;
+  }
 `;
 
 const Nav = styled.nav`
   display: flex;
   gap: 15px;
+  width: 100%;
 `;
 
 const SearchContainer = styled.div`
@@ -39,14 +47,40 @@ const SearchContainer = styled.div`
 
 const SearchInput = styled.input`
   width: 100%;
-  opacity: ${(props) => (props.$expanded ? '1' : '0')};
+  opacity: ${(props) => (props.$expanded ? "1" : "0")};
   transform: ${(props) => (props.$expanded ? "scaleX(1)" : "scaleX(0)")};
   transform-origin: right;
-  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  transition:
+    opacity 0.6s ease-out,
+    transform 0.6s ease-out;
 `;
 
+const BasketContainer = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  position: relative;
+`;
 
-function Navbar() {
+const BasketCounter = styled.div`
+  text-align: center;
+  position: absolute;
+  width: 13px;
+  height: 13px;
+  border-radius: 50%;
+  top: 19px;
+  left: 17px;
+  background-color: red;
+  font-size: 0.7em;
+  color: white;
+`;
+
+const MenuItems = styled.div`
+  margin-right: auto;
+  margin-left: 80px;
+`;
+
+function Navbar({ basketCount }) {
   const [searchActive, setSearchActive] = useState(false);
 
   let inputRef = useRef(null);
@@ -65,13 +99,13 @@ function Navbar() {
 
   return (
     <Header>
-      <Link to="/">
-        <h1>Root</h1>
+      <Link to="/home">
+        <h1>root</h1>
       </Link>
       <Nav>
-        <div className="menuItems">
-          <NavLink />
-        </div>
+        <MenuItems>
+          <NavLink to='/shop'>Shop</NavLink>
+        </MenuItems>
         <SearchContainer>
           <SearchButton
             $shifted={searchActive}
@@ -87,8 +121,11 @@ function Navbar() {
             role="searchbox"
           />
         </SearchContainer>
-        <NavLink to="/cart">
-          <span className="material-symbols-outlined">potted_plant</span>
+        <NavLink to="cart">
+          <BasketContainer>
+            <span className="material-symbols-outlined">potted_plant</span>
+            {basketCount !== 0 && <BasketCounter>{basketCount}</BasketCounter>}
+          </BasketContainer>
         </NavLink>
       </Nav>
     </Header>
