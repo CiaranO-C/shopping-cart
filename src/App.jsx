@@ -12,7 +12,25 @@ function App() {
     .map((item) => item.quantity)
     .reduce((acc, current) => acc + current, 0);
 
-  console.log(basketCount);
+  useEffect(() => {
+    if (basketCount !== 0) {
+      console.log("setting basket");
+      sessionStorage.setItem("basketData", JSON.stringify(basketData));
+    }
+  }, [basketData]);
+
+  useEffect(() => {
+    async function getBasket() {
+      if (sessionStorage.getItem("basketData")) {
+        const basketString = sessionStorage.getItem("basketData");
+        console.log(basketString);
+        const basketJSON = await JSON.parse(basketString);
+        console.log(basketJSON);
+        setBasketData(basketJSON);
+      }
+    }
+    getBasket();
+  }, []);
 
   useEffect(() => {
     let data;
