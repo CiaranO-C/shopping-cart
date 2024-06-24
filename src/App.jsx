@@ -6,12 +6,21 @@ import { useEffect } from "react";
 
 function App() {
   const [plantsData, setPlantsData] = useState(null);
-  const [basketData, setBasketData] = useState([]);
+  const [basketData, setBasketData] = useState({});
 
-  const basketCount = basketData.length;
+  const basketCount = Object.values(basketData)
+    .map((item) => item.quantity)
+    .reduce((acc, current) => acc + current, 0);
+
+  console.log(basketCount);
 
   useEffect(() => {
     let data;
+
+    function generateRandomPrice(min, max) {
+      return Math.floor(min + Math.random() * (max - min + 1));
+    }
+
     async function fetchEmojis() {
       if (!localStorage.getItem("emojisData")) {
         console.log("fetching");
@@ -27,6 +36,7 @@ function App() {
               icon: res.character,
               name: res.slug.split("-").slice(2).join(" "),
               id: res.codePoint,
+              price: generateRandomPrice(15, 60),
             };
           });
         localStorage.setItem("emojisData", JSON.stringify(data));
@@ -44,7 +54,7 @@ function App() {
   return (
     <>
       <Navbar basketCount={basketCount} />
-      <Outlet context={{plantsData, basketData}} />
+      <Outlet context={{ plantsData, basketData, setBasketData }} />
     </>
   );
 }

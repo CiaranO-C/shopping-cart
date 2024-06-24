@@ -28,12 +28,12 @@ const ProductName = styled.h2`
 font-size: 1.2em;
 `
 
-function ProductCard({ icon, name }) {
+function ProductCard({ icon, name, price }) {
   return (
     <CardContainer>
       <Icon>{icon}</Icon>
       <ProductName>{name}</ProductName>
-      <p>£12.00</p>
+      <p>£{price}.00</p>
     </CardContainer>
   );
 }
@@ -41,6 +41,7 @@ function ProductCard({ icon, name }) {
 ProductCard.propTypes = {
   icon: PropTypes.string,
   name: PropTypes.string,
+  price: PropTypes.number,
 };
 
 export default ProductCard;

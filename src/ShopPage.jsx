@@ -1,20 +1,20 @@
-import { useOutletContext } from "react-router-dom";
-import ShopSkeleton from './ShopSkeleton';
-import ProductCard from './ProductCard';
-import styled from 'styled-components';
+import { Link, useOutletContext } from "react-router-dom";
+import ShopSkeleton from "./ShopSkeleton";
+import ProductCard from "./ProductCard";
+import styled from "styled-components";
 
 const ShopContent = styled.main`
-padding: 0px 100px;
-padding-top: 50px;
-`
+  padding: 0px 100px;
+  padding-top: 50px;
+`;
 
 const ProductGrid = styled.div`
-display: grid;
-grid-template-columns: 1fr 1fr 1fr;
-grid-template-rows: auto;
-gap: 20px;
-margin-top: 15px;
-`
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: auto;
+  gap: 20px;
+  margin-top: 15px;
+`;
 
 function ShopPage() {
   const { plantsData } = useOutletContext();
@@ -26,7 +26,11 @@ function ShopPage() {
       <h1>All Items</h1>
       <ProductGrid>
         {plantsData.map((item) => {
-          return <ProductCard key={item.id} icon={item.icon} name={item.name} />;
+          return (
+            <Link key={item.id} to={item.id}>
+              <ProductCard  icon={item.icon} name={item.name} price={item.price} />
+            </Link>
+          );
         })}
       </ProductGrid>
     </ShopContent>
