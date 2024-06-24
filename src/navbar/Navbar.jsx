@@ -2,6 +2,7 @@ import { Link, NavLink } from "react-router-dom";
 import { MagnifyingGlassIcon } from "@heroicons/react/24/solid";
 import { useEffect, useRef, useState } from "react";
 import styled from "styled-components";
+import PropTypes from "prop-types";
 
 const SearchButton = styled.button`
   background-color: rgba(255, 255, 255, 0);
@@ -63,6 +64,7 @@ const BasketContainer = styled.div`
 `;
 
 const BasketCounter = styled.div`
+  font-family: 'Autour One', display;
   text-align: center;
   position: absolute;
   width: 13px;
@@ -104,7 +106,7 @@ function Navbar({ basketCount }) {
       </Link>
       <Nav>
         <MenuItems>
-          <NavLink to='/shop'>Shop</NavLink>
+          <NavLink to="/shop">Shop</NavLink>
         </MenuItems>
         <SearchContainer>
           <SearchButton
@@ -131,5 +133,9 @@ function Navbar({ basketCount }) {
     </Header>
   );
 }
+
+Navbar.propTypes = {
+  basketCount: PropTypes.number,
+};
 
 export default Navbar;

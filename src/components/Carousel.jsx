@@ -8,7 +8,7 @@ const Track = styled.div`
 `;
 
 const CarouselIcon = styled.div`
-  background-color: white;
+  background-color: transparent;
   width: 120px;
   height: 120px;
   font-size: 3.8em;

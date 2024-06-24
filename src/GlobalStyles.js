@@ -46,10 +46,6 @@ h1 {
  font-family: 'Abril Fatface', display;
 }
 
-#root > :nth-child(2){
-margin-top: 85px;
-}
-
 button {
   font-size: 1em;
   font-weight: 500;

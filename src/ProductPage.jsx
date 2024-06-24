@@ -2,6 +2,66 @@ import { useParams } from "react-router-dom";
 import { useOutletContext } from "react-router-dom";
 import ProductCard from "./ProductCard";
 import { useState } from "react";
+import styled from "styled-components";
+
+const Main = styled.main`
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+`;
+
+const ContentContainer = styled.div`
+  display: flex;
+  gap: 60px;
+  align-items: center;
+`;
+
+const ProductControls = styled.div`
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: space-evenly;
+
+  & > button {
+    height: 25px;
+    border-radius: 15px;
+    border: none;
+    box-shadow:
+      rgba(0, 0, 0, 0.05) 0px 6px 24px 0px,
+      rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+  }
+`;
+
+const QuantityController = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+
+  & > div {
+    display: flex;
+    gap: 5px;
+
+    button {
+      text-align: center;
+      width: 25px;
+      height: 25px;
+      border-radius: 50%;
+      border: none;
+      box-shadow:
+        rgba(0, 0, 0, 0.05) 0px 6px 24px 0px,
+        rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+    }
+  }
+
+  input {
+    width: 25px;
+    height: 25px;
+    text-align: center;
+  }
+`;
 
 function ProductPage() {
   const [quantity, setQuantity] = useState(1);
@@ -23,8 +83,8 @@ function ProductPage() {
   }
 
   function handleBlur(e) {
-    const input = e.target;
-    if (input.value < 1) {
+    const value = e.target.value;
+    if (value < 1 || value[0] === "0") {
       setQuantity(1);
     }
   }
@@ -53,31 +113,35 @@ function ProductPage() {
   }
 
   return (
-    <main>
-      <div>
+    <Main>
+      <ContentContainer>
         <ProductCard
           icon={productData.icon}
           name={productData.name}
           price={productData.price}
         />
-        <div>
+        <ProductControls>
           <h3>Like what you see?</h3>
-          <div>
+          <QuantityController>
             <h4>Quantity</h4>
-            <button onClick={handleRemove}>-</button>
-            <input
-              onBlur={handleBlur}
-              onChange={handleInput}
-              value={quantity}
-              type="number"
-            />
-            <button onClick={handleAdd}>+</button>
-          </div>
-          <p>£{productData.price * quantity}.00</p>
+            <div>
+              <button onClick={handleRemove}>-</button>
+              <input
+                onBlur={handleBlur}
+                onChange={handleInput}
+                value={quantity}
+                type="text"
+                inputMode="numeric"
+              />
+              <button onClick={handleAdd}>+</button>
+            </div>
+            <p>£{productData.price * quantity}.00</p>
+          </QuantityController>
+
           <button onClick={addToBasket}>Add to pot</button>
-        </div>
-      </div>
-    </main>
+        </ProductControls>
+      </ContentContainer>
+    </Main>
   );
 }
 

@@ -13,7 +13,7 @@ function App() {
     .reduce((acc, current) => acc + current, 0);
 
   useEffect(() => {
-    if (basketCount !== 0) {
+    if (Object.keys(basketData).length) {
       console.log("setting basket");
       sessionStorage.setItem("basketData", JSON.stringify(basketData));
     }
