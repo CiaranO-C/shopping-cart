@@ -7,6 +7,9 @@ function ProductPage() {
   const [quantity, setQuantity] = useState(1);
   const { plantsData, basketData, setBasketData } = useOutletContext();
   const page = useParams();
+
+  if (!plantsData) return <div>Loading!</div>;
+
   const productData = plantsData.find((item) => item.id === page.id);
 
   function handleAdd() {

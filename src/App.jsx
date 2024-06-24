@@ -22,7 +22,7 @@ function App() {
     }
 
     async function fetchEmojis() {
-      if (!localStorage.getItem("emojisData")) {
+      if (!sessionStorage.getItem("emojisData")) {
         console.log("fetching");
         const response = await fetch(
           "https://emoji-api.com/categories/animals-nature?access_key=30a61bdbe5ec72c2a7d775f9e094a853e6c3dedb",
@@ -39,10 +39,10 @@ function App() {
               price: generateRandomPrice(15, 60),
             };
           });
-        localStorage.setItem("emojisData", JSON.stringify(data));
+        sessionStorage.setItem("emojisData", JSON.stringify(data));
       } else {
         console.log("retrieving");
-        const stringData = localStorage.getItem("emojisData");
+        const stringData = sessionStorage.getItem("emojisData");
         data = await JSON.parse(stringData);
       }
       setPlantsData(data);
