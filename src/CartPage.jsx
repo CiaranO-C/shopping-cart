@@ -1,6 +1,6 @@
 import { Link, useOutletContext } from "react-router-dom";
 import styled from "styled-components";
-import QuantityController from "./QuantityController";
+import QuantityController from "./components/QuantityController";
 import ProductCard from "./ProductCard";
 
 const Main = styled.main`

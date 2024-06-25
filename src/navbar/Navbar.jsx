@@ -30,7 +30,7 @@ const Header = styled.header`
   h1 {
     font-size: 3em;
     position: relative;
-    top: -4px;
+    top: -7px;
   }
 `;
 

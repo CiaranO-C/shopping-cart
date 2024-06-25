@@ -3,7 +3,7 @@ import { useOutletContext } from "react-router-dom";
 import ProductCard from "./ProductCard";
 import { useState } from "react";
 import styled from "styled-components";
-import QuantityController from "./QuantityController.jsx";
+import QuantityController from "./components/QuantityController.jsx";
 
 const Main = styled.main`
   display: flex;

@@ -18,11 +18,11 @@ const Home = styled.main`
     border-radius: 15px;
     font-family: "Abril Fatface", display;
   }
-`;
 
-const Title = styled.h1`
-  font-size: 3.5em;
+  h1 {
+   font-size: 3.5em;
   margin: 45px 0px;
+  }
 `;
 
 function HomePage() {
@@ -30,7 +30,7 @@ function HomePage() {
     <>
       <Home>
         <Carousel direction="right" />
-        <Title>root</Title>
+        <h1>root</h1>
         <Link to='/shop'>
           <button>shop now</button>
         </Link>
