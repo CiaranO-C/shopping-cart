@@ -1,4 +1,6 @@
 import { MemoryRouter, Outlet, Route, Routes } from "react-router-dom";
+/* eslint react/prop-types: 0 */
+
 
 function RenderRouteWithOutletContext({ context, children }) {
   return (
@@ -11,5 +13,7 @@ function RenderRouteWithOutletContext({ context, children }) {
     </MemoryRouter>
   );
 }
+
+
 
 export default RenderRouteWithOutletContext;

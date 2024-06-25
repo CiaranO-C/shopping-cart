@@ -95,6 +95,7 @@ function CartPage() {
   }
 
   function removeFromBasket(id) {
+    // eslint-disable-next-line no-unused-vars
     const { [id]: _, ...rest } = basketData;
     setBasketData(rest);
   }
