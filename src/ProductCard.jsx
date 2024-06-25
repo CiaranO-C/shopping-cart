@@ -22,7 +22,7 @@ const CardContainer = styled.button`
 
 const Icon = styled.i`
   font-size: 7em;
-  padding: 25px;
+  padding: 20px;
   align-self: center;
 `;
 

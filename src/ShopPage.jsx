@@ -5,7 +5,8 @@ import styled from "styled-components";
 
 const ShopContent = styled.main`
   padding: 0px 100px;
-  padding-top: 50px;
+  padding-top: 20px;
+  margin-top: 85px;
 `;
 
 const ProductGrid = styled.div`
