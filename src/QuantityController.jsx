@@ -1,5 +1,5 @@
-import styled from 'styled-components';
-import PropTypes from 'prop-types';
+import styled from "styled-components";
+import PropTypes from "prop-types";
 
 const Controller = styled.div`
   display: flex;
@@ -30,54 +30,55 @@ const Controller = styled.div`
   }
 `;
 
+function QuantityController({ status, quantity, setQuantity, id }) {
+  const isCheckout = status === "checkout";
 
+  function handleAdd() {
+    isCheckout ? setQuantity(id, quantity + 1) : setQuantity(quantity + 1);
+  }
 
-function QuantityController({quantity, setQuantity}) {
+  function handleRemove() {
+    if (quantity > 1) {
+      isCheckout ? setQuantity(id, quantity - 1) : setQuantity(quantity - 1);
+    }
+  }
 
-    function handleAdd() {
-        setQuantity(quantity + 1);
-      }
-    
-      function handleRemove() {
-        if (quantity > 1) {
-          setQuantity(quantity - 1);
-        }
-      }
-    
-      function handleBlur(e) {
-        const value = e.target.value;
-        if (value < 1 || value[0] === "0") {
-          setQuantity(1);
-        }
-      }
-    
-      function handleInput(e) {
-        const value = e.target.value;
-        if (value >= 0) {
-          setQuantity(value);
-        }
-      }
+  function handleBlur(e) {
+    const value = e.target.value;
+    if (value < 1 || value[0] === "0") {
+      isCheckout ? setQuantity(id, 1) : setQuantity(1);
+    }
+  }
+
+  function handleInput(e) {
+    const value = Number(e.target.value);
+    if (value >= 0) {
+      isCheckout ? setQuantity(id, value) : setQuantity(value);
+    }
+  }
   return (
     <Controller>
-        <h4>Quantity</h4>
-            <div>
-              <button onClick={handleRemove}>-</button>
-              <input
-                onBlur={handleBlur}
-                onChange={handleInput}
-                value={quantity}
-                type="text"
-                inputMode="numeric"
-              />
-              <button onClick={handleAdd}>+</button>
-            </div>
+      <h4>Quantity</h4>
+      <div>
+        <button onClick={handleRemove}>-</button>
+        <input
+          onBlur={handleBlur}
+          onChange={handleInput}
+          value={quantity}
+          type="text"
+          inputMode="numeric"
+        />
+        <button onClick={handleAdd}>+</button>
+      </div>
     </Controller>
-  )
+  );
 }
 
 QuantityController.propTypes = {
-    quantity: PropTypes.number,
-    setQuantity: PropTypes.func,
-}
+  status: PropTypes.string,
+  quantity: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+  setQuantity: PropTypes.func,
+  id: PropTypes.string,
+};
 
 export default QuantityController;

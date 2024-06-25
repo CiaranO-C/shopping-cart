@@ -70,7 +70,7 @@ function ProductPage() {
         />
         <ProductControls>
           <h3>Like what you see?</h3>
-          <QuantityController quantity={quantity} setQuantity={setQuantity} />
+          <QuantityController status='shop'id={productData.id} quantity={quantity} setQuantity={setQuantity} />
           <p>£{productData.price * quantity}.00</p>
           <button onClick={addToBasket}>Add to pot</button>
         </ProductControls>
