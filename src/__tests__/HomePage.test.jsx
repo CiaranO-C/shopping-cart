@@ -68,4 +68,22 @@ describe("HomePage component", () => {
 
     expect(screen.getByRole("heading", { name: "root" })).toBeInTheDocument();
   });
+
+  it("Renders total number of icons once per carousel", () => {
+    render(
+      <RenderRouteWithOutletContext context={contextData}>
+        <HomePage />
+      </RenderRouteWithOutletContext>,
+    );
+    const numOfCarousels = 2;
+    const numOfPlants = contextData.plantsData.length; //test has 4 plants
+    const totalExpectedIcons = numOfCarousels * numOfPlants; //total 8
+    const testIcon = contextData.plantsData[0].icon;
+    const icons = screen.getAllByText(`${testIcon}`);
+
+    expect(totalExpectedIcons).toEqual(icons.length);
+    icons.forEach((icon) => {
+      expect(icon).toBeVisible();
+    });
+  });
 });

@@ -14,7 +14,6 @@ describe("NavBar Component", () => {
 
     const title = screen.getByRole("heading", { name: "root" });
     expect(title).toBeInTheDocument();
-    expect(title).toHaveTextContent("root");
   });
 
   it("renders the search icon", () => {
