@@ -2,6 +2,9 @@ import { describe, expect, it, vi } from "vitest";
 import HomePage from "../home/HomePage.jsx";
 import { render, screen } from "@testing-library/react";
 import RenderRouteWithOutletContext from "./RenderWithOutletContext.jsx";
+import userEvent from "@testing-library/user-event";
+import { MemoryRouter, Outlet, Route, Routes } from "react-router-dom";
+import ShopPage from "../ShopPage.jsx";
 
 const contextData = {
   plantsData: [
@@ -85,5 +88,40 @@ describe("HomePage component", () => {
     icons.forEach((icon) => {
       expect(icon).toBeVisible();
     });
+  });
+
+  it("Renders a Link component with a button with the text 'shop now'", () => {
+    render(
+      <RenderRouteWithOutletContext context={contextData}>
+        <HomePage />
+      </RenderRouteWithOutletContext>,
+    );
+
+    expect(
+      screen.getByRole("button", { name: "shop now" }),
+    ).toBeInTheDocument();
+  });
+
+  it("click of shop now button takes user to shop page", async () => {
+    const user = userEvent.setup();
+
+    render(
+      <MemoryRouter initialEntries={["/"]}>
+        <Routes>
+          <Route path="/" element={<Outlet context={contextData} />}>
+            <Route index element={<HomePage />} />
+            <Route path="/shop" element={<ShopPage />} />
+          </Route>
+        </Routes>
+      </MemoryRouter>,
+    );
+
+    const link = screen.getByRole("link", { name: "shop now" });
+
+    await user.click(link);
+
+    const heading = screen.getByText(/All Items/i);
+
+    expect(heading).toBeInTheDocument();
   });
 });
