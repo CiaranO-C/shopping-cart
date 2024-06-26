@@ -1,4 +1,5 @@
 import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 const CardContainer = styled.button`
@@ -32,11 +33,13 @@ const ProductName = styled.h2`
 
 function ProductCard({ testID, icon, name, price }) {
   return (
-    <CardContainer data-testid={testID}>
-      <Icon>{icon}</Icon>
-      <ProductName>{name}</ProductName>
-      <p>£{price}.00</p>
-    </CardContainer>
+    <Link data-testid={testID}>
+      <CardContainer>
+        <Icon>{icon}</Icon>
+        <ProductName>{name}</ProductName>
+        <p>£{price}.00</p>
+      </CardContainer>
+    </Link>
   );
 }
 

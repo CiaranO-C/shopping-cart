@@ -28,9 +28,13 @@ function ShopPage() {
       <ProductGrid>
         {plantsData.map((item) => {
           return (
-            <Link key={item.id} to={item.id}>
-              <ProductCard  icon={item.icon} name={item.name} price={item.price} />
-            </Link>
+            <ProductCard
+              key={item.id}
+              testID={item.id}
+              icon={item.icon}
+              name={item.name}
+              price={item.price}
+            />
           );
         })}
       </ProductGrid>
