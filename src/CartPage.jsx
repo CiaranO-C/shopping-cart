@@ -116,7 +116,7 @@ function CartPage() {
           const data = item[1];
           return (
             <li key={id}>
-              <ProductCard testID={id} icon={data.icon} name={data.name} />
+              <ProductCard id={id} icon={data.icon} name={data.name} />
               <div>
                 <div className="total">
                   <QuantityController

@@ -1,4 +1,4 @@
-import { Link, useOutletContext } from "react-router-dom";
+import { useOutletContext } from "react-router-dom";
 import ShopSkeleton from "./ShopSkeleton";
 import ProductCard from "./ProductCard";
 import styled from "styled-components";
@@ -30,7 +30,7 @@ function ShopPage() {
           return (
             <ProductCard
               key={item.id}
-              testID={item.id}
+              id={item.id}
               icon={item.icon}
               name={item.name}
               price={item.price}

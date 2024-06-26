@@ -64,7 +64,7 @@ function ProductPage() {
     <Main>
       <ContentContainer>
         <ProductCard
-          testID={productData.id}
+          id={productData.id}
           icon={productData.icon}
           name={productData.name}
           price={productData.price}
