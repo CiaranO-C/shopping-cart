@@ -4,6 +4,7 @@ import {
   render,
   screen,
 } from "@testing-library/react";
+import { MemoryRouter } from 'react-router-dom';
 
 describe("Product Card Component", () => {
   it("Renders Card with correct information via props", () => {
@@ -23,20 +24,20 @@ describe("Product Card Component", () => {
     ];
 
     render(
-      <>
+      <MemoryRouter>
         <ProductCard
-          testID={testProducts[0].id}
+          id={testProducts[0].id}
           name={testProducts[0].name}
           icon={testProducts[0].icon}
           price={testProducts[0].price}
         />
         <ProductCard
-          testID={testProducts[1].id}
+          id={testProducts[1].id}
           name={testProducts[1].name}
           icon={testProducts[1].icon}
           price={testProducts[1].price}
         />
-      </>,
+      </MemoryRouter>,
     );
 
     testProducts.forEach((product) => {
