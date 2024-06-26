@@ -3,6 +3,8 @@ import Navbar from "../navbar/Navbar.jsx";
 import userEvent from "@testing-library/user-event";
 import { expect, describe, it } from "vitest";
 import { MemoryRouter } from "react-router-dom";
+import contextData from './contextData.js';
+
 
 describe("NavBar Component", () => {
   it('renders an h1 title "Root"', () => {
@@ -14,6 +16,21 @@ describe("NavBar Component", () => {
 
     const title = screen.getByRole("heading", { name: "root" });
     expect(title).toBeInTheDocument();
+  });
+
+  it("basket/pot displays the correct number of items via counter element", () => {
+    const basketCount = Object.keys(contextData.basketData).length
+    render(
+      <MemoryRouter>
+        <Navbar basketCount={basketCount}/>
+      </MemoryRouter>,
+    );
+    const icon = screen.getByText("potted_plant");
+    const counter = screen.getByTestId('basketCounter');
+    
+    expect(icon).toBeInTheDocument();
+    expect(counter).toHaveTextContent(`${basketCount}`)
+    
   });
 
   it("renders the search icon", () => {
