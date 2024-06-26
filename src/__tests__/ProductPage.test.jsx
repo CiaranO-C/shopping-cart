@@ -3,6 +3,8 @@ import { beforeEach, describe, expect, it } from "vitest";
 import contextData from "./contextData";
 import ProductPage from "../ProductPage";
 import { render, screen } from "@testing-library/react";
+import Navbar from "../navbar/Navbar";
+import userEvent from "@testing-library/user-event";
 
 describe("Product page component", () => {
   beforeEach(() => {
@@ -45,7 +47,19 @@ describe("Product page component", () => {
     expect(screen.getByRole("button", { name: "+" })).toBeInTheDocument();
   });
 
-  it('renders an add to pot button', () => {
-    expect(screen.getByRole('button', {name: 'Add to pot'})).toBeInTheDocument();
-  })
+  it("renders an add to pot button", () => {
+    expect(
+      screen.getByRole("button", { name: "Add to pot" }),
+    ).toBeInTheDocument();
+  });
+
+  it("user click on add to pot calls the setBasket state function", async () => {
+    const user = userEvent.setup();
+
+    const button = screen.getByRole("button", { name: "Add to pot" });
+
+    await user.click(button);
+
+    expect(contextData.setBasketData).toHaveBeenCalled();
+  });
 });
