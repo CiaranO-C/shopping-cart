@@ -29,7 +29,7 @@ describe("Shop page main content", () => {
     //matches hrefs to product ids
     for (let i = 0; i < numOfPlants; i++) {
       const plant = plants[i];
-      const href = `/${plant.id}`;
+      const href = `/shop/${plant.id}`;
       const itemLink = screen
         .getAllByRole("link")
         .find((item) => item.getAttribute("href") === href);

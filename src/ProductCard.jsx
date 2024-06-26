@@ -33,7 +33,7 @@ const ProductName = styled.h2`
 
 function ProductCard({ id, icon, name, price }) {
   return (
-    <Link data-testid={id} to={id}>
+    <Link data-testid={id} to={`/shop/${id}`}>
       <CardContainer>
         <Icon>{icon}</Icon>
         <ProductName>{name}</ProductName>

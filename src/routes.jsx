@@ -25,7 +25,7 @@ const routesConfig = [
         element: <ShopPage />,
       },
       {
-        path: "shop/:id",
+        path: "/shop/:id",
         element: <ProductPage />,
       },
       {
