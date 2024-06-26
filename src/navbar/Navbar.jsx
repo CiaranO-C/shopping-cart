@@ -126,7 +126,7 @@ function Navbar({ basketCount }) {
         <NavLink to="cart">
           <BasketContainer>
             <span className="material-symbols-outlined">potted_plant</span>
-            {basketCount !== 0 && <BasketCounter>{basketCount}</BasketCounter>}
+            {basketCount !== 0 && <BasketCounter data-testid={'basketCounter'}>{basketCount}</BasketCounter>}
           </BasketContainer>
         </NavLink>
       </Nav>

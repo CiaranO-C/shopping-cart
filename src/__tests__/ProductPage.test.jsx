@@ -3,7 +3,6 @@ import { beforeEach, describe, expect, it } from "vitest";
 import contextData from "./contextData";
 import ProductPage from "../ProductPage";
 import { render, screen } from "@testing-library/react";
-import Navbar from "../navbar/Navbar";
 import userEvent from "@testing-library/user-event";
 
 describe("Product page component", () => {
