@@ -1,9 +1,9 @@
 import { useParams } from "react-router-dom";
 import { useOutletContext } from "react-router-dom";
-import ProductCard from "./ProductCard";
+import ProductCard from "../components/ProductCard.jsx";
 import { useState } from "react";
 import styled from "styled-components";
-import QuantityController from "./components/QuantityController.jsx";
+import QuantityController from "../components/QuantityController.jsx";
 
 const Main = styled.main`
   display: flex;

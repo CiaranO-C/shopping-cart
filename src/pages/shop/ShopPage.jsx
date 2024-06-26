@@ -1,6 +1,6 @@
 import { useOutletContext } from "react-router-dom";
-import ShopSkeleton from "./ShopSkeleton";
-import ProductCard from "./ProductCard";
+import ShopSkeleton from "./ShopSkeleton.jsx";
+import ProductCard from "../../components/ProductCard";
 import styled from "styled-components";
 
 const ShopContent = styled.main`

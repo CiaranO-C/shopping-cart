@@ -1,9 +1,9 @@
 import App from "./App.jsx";
-import ErrorPage from "./ErrorPage.jsx";
-import HomePage from "./home/HomePage.jsx";
-import ShopPage from "./ShopPage.jsx";
-import CartPage from "./CartPage.jsx";
-import ProductPage from "./ProductPage.jsx";
+import ErrorPage from "./pages/ErrorPage.jsx";
+import HomePage from "./pages/HomePage.jsx";
+import ShopPage from "./pages/shop/ShopPage.jsx";
+import CartPage from "./pages/CartPage.jsx";
+import ProductPage from "./pages/ProductPage.jsx";
 
 const routesConfig = [
   {

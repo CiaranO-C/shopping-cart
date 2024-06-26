@@ -1,10 +1,7 @@
 import { describe, expect, it } from "vitest";
-import CartPage from "../CartPage";
+import CartPage from "../pages/CartPage";
 import contextData from "./contextData";
 import {
-  getAllByRole,
-  getAllByTestId,
-  getByRole,
   render,
   screen,
 } from "@testing-library/react";

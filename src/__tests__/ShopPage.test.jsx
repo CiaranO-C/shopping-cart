@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 import { render, screen } from "@testing-library/react";
-import ShopPage from "../ShopPage.jsx";
+import ShopPage from "../pages/shop/ShopPage.jsx";
 import contextData from "./contextData.js";
 import RenderRouteWithOutletContext from "./RenderWithOutletContext.jsx";
 

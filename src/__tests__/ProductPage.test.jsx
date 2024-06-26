@@ -1,7 +1,7 @@
 import { MemoryRouter, Outlet, Route, Routes } from "react-router-dom";
 import { beforeEach, describe, expect, it } from "vitest";
 import contextData from "./contextData";
-import ProductPage from "../ProductPage";
+import ProductPage from "../pages/ProductPage";
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 

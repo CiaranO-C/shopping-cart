@@ -1,10 +1,10 @@
 import { describe, expect, it } from "vitest";
-import HomePage from "../home/HomePage.jsx";
+import HomePage from "../pages/HomePage.jsx";
 import { render, screen } from "@testing-library/react";
 import RenderRouteWithOutletContext from "./RenderWithOutletContext.jsx";
 import userEvent from "@testing-library/user-event";
 import { MemoryRouter, Outlet, Route, Routes } from "react-router-dom";
-import ShopPage from "../ShopPage.jsx";
+import ShopPage from "../pages/shop/ShopPage.jsx";
 import contextData from './contextData.js';
 
 

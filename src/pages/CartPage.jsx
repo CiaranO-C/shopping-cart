@@ -1,7 +1,7 @@
 import { Link, useOutletContext } from "react-router-dom";
 import styled from "styled-components";
-import QuantityController from "./components/QuantityController";
-import ProductCard from "./ProductCard";
+import QuantityController from "../components/QuantityController";
+import ProductCard from "../components/ProductCard";
 
 const Main = styled.main`
   min-height: 100vh;
