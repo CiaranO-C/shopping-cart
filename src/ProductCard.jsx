@@ -30,9 +30,9 @@ const ProductName = styled.h2`
   font-size: 1.2em;
 `;
 
-function ProductCard({ icon, name, price }) {
+function ProductCard({ testID, icon, name, price }) {
   return (
-    <CardContainer>
+    <CardContainer data-testid={testID}>
       <Icon>{icon}</Icon>
       <ProductName>{name}</ProductName>
       <p>£{price}.00</p>
@@ -41,6 +41,7 @@ function ProductCard({ icon, name, price }) {
 }
 
 ProductCard.propTypes = {
+  testID: PropTypes.string,
   icon: PropTypes.string,
   name: PropTypes.string,
   price: PropTypes.number,
