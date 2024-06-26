@@ -3,8 +3,7 @@ import { render, screen } from "@testing-library/react";
 import ShopPage from "../ShopPage.jsx";
 import contextData from "./contextData.js";
 import RenderRouteWithOutletContext from "./RenderWithOutletContext.jsx";
-import userEvent from "@testing-library/user-event";
-import { MemoryRouter, Outlet, Route, Routes } from "react-router-dom";
+
 
 describe("Shop page main content", () => {
   it('renders heading "All Items"', () => {
@@ -37,19 +36,5 @@ describe("Shop page main content", () => {
       expect(itemLink).toBeInTheDocument();
     }
     expect(productCards.length).toEqual(numOfPlants);
-  });
-
-  it("product page is opened when product link is clicked", async () => {
-    const user = userEvent.setup();
-    render(
-      <MemoryRouter>
-        <Routes>
-          <Route path="/" element={<Outlet context={contextData} />}>
-            <Route path="shop" />
-            <Route path="shop/:id" />
-          </Route>
-        </Routes>
-      </MemoryRouter>,
-    );
   });
 });

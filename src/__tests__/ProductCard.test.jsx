@@ -1,10 +1,9 @@
 import { describe, expect, it } from "vitest";
 import ProductCard from "../ProductCard";
-import {
-  render,
-  screen,
-} from "@testing-library/react";
-import { MemoryRouter } from 'react-router-dom';
+import { render, screen } from "@testing-library/react";
+import { MemoryRouter, Outlet, Route, Routes } from "react-router-dom";
+import contextData from "./contextData";
+import ProductPage from "../ProductPage";
 
 describe("Product Card Component", () => {
   it("Renders Card with correct information via props", () => {
@@ -49,5 +48,24 @@ describe("Product Card Component", () => {
         expect(card).toHaveTextContent(value);
       });
     });
+  });
+
+  it("correct product page loaded with dynamic url", () => {
+    render(
+      <MemoryRouter initialEntries={["/shop/1"]}>
+        <Routes>
+          <Route path="/shop" element={<Outlet context={contextData} />}>
+            <Route path="/shop/:id" element={<ProductPage />} />
+          </Route>
+        </Routes>
+      </MemoryRouter>,
+    );
+    //mock product id's range from 1-4
+    const firstProduct = contextData.plantsData[0];
+    const productCard = screen.getByTestId("1");
+
+    //confirm first card matches first product
+    expect(productCard).toHaveTextContent(firstProduct.name);
+    expect(screen.getAllByRole("link").length).toEqual(1);
   });
 });
