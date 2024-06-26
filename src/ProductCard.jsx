@@ -37,7 +37,7 @@ function ProductCard({ id, icon, name, price }) {
       <CardContainer>
         <Icon>{icon}</Icon>
         <ProductName>{name}</ProductName>
-        <p>£{price}.00</p>
+        {price && <p>£{price}.00</p>}
       </CardContainer>
     </Link>
   );

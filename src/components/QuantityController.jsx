@@ -62,6 +62,7 @@ function QuantityController({ status, quantity, setQuantity, id }) {
       <div>
         <button onClick={handleRemove}>-</button>
         <input
+          data-testid={`quantity-${id}`}
           onBlur={handleBlur}
           onChange={handleInput}
           value={quantity}

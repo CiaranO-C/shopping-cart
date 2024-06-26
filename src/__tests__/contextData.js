@@ -50,6 +50,7 @@ const contextData = {
         icon: "🏵️",
         name: "four",
         price: 14,
+        quantity: 4,
       },
     },
     setBasketData: vi.fn(),
