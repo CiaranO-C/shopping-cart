@@ -63,9 +63,23 @@ button {
   a:hover {
     color: #747bff;
   }
-  button {
-    background-color: #f9f9f9;
+  
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    color: white;
+    background-color: #242424;
   }
+  a:hover {
+    color: #747bff;
+  }
+  h2, h2+p {
+  color: black;
+  }
+  button {
+  color: black;
+  background-color: white;}
 }
 
 `;
