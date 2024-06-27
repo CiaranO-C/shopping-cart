@@ -76,7 +76,13 @@ const Main = styled.main`
 function CartPage() {
   const { basketData, setBasketData } = useOutletContext();
 
-  if (!basketData) return <div>Loading!</div>;
+  const items = Object.values(basketData);
+
+  if (!items.length) return <div>Loading!</div>;
+  
+  const totalPrice = items
+    .map((item) => item.quantity * item.price)
+    .reduce((total, item) => total + item);
 
   const basketArray = Object.entries(basketData);
 
@@ -137,6 +143,7 @@ function CartPage() {
           );
         })}
       </ul>
+      <p>Your Total: £{totalPrice}.00</p>
       <button onClick={clearBasket} className="checkout">
         Checkout
       </button>
